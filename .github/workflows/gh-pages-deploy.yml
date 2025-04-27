@@ -2,7 +2,10 @@ name: Release to Github Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main]  # Edit this to target the branch that you want
+#   push:  # Alternatively trigger based on pushed tags
+#     tags:
+#       - '[0-9]+.[0-9]+.[0-9]+'
   workflow_dispatch:
 
 permissions:
@@ -76,11 +79,11 @@ jobs:
           # token:
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist dir
           path: './dist'
 
       - name: Deploy to GitHub Pages 🚀
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4
